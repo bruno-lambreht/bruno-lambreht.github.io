@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bruno E. Lambreht — Portfolio</title>
+  <meta name="description" content="Bruno E. Lambreht — Economics Student, SysAdmin & Web Infrastructure. Financial Automation, Python for Finance, Algorithmic Trading." />
+  <meta name="author" content="Bruno E. Lambreht" />
+  <meta name="keywords" content="Bruno Lambreht, Economics, UFGD, SysAdmin, Python, Finance, Algorithmic Trading, CPA, Portfolio" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bruno E. Lambreht — Portfolio" />
+  <meta property="og:description" content="Economics Student (UFGD) | SysAdmin & Web Infrastructure. Financial Automation, Python for Finance, Algorithmic Trading." />
+  <meta property="og:url" content="https://bruno-lambreht.github.io" />
+  <meta property="og:site_name" content="Bruno E. Lambreht" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="pt_BR" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bruno E. Lambreht — Portfolio" />
+  <meta name="twitter:description" content="Economics Student (UFGD) | SysAdmin & Web Infrastructure. Financial Automation, Python for Finance, Algorithmic Trading." />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://bruno-lambreht.github.io" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: { 50: '#e8e8e8', 100: '#d1d1d1', 200: '#a3a3a3', 300: '#757575', 400: '#474747', 500: '#1a1a1a', 600: '#151515', 700: '#101010', 800: '#0a0a0a', 900: '#050505' },
+            accent: { DEFAULT: '#6366f1', light: '#818cf8', dark: '#4f46e5' },
+            mint: '#34d399',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { scrollbar-width: thin; scrollbar-color: #6366f1 #0a0a0a; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 3px; }
+    ::selection { background: #6366f180; color: #fff; }
+    .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #818cf8 50%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.06); }
+    .glow { box-shadow: 0 0 40px rgba(99, 102, 241, 0.15); }
+    .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(99, 102, 241, 0.12); border-color: rgba(99, 102, 241, 0.3); }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .tag { transition: all 0.2s ease; }
+    .tag:hover { background: rgba(99, 102, 241, 0.2); border-color: rgba(99, 102, 241, 0.5); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #6366f1; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.08; pointer-events: none; animation: float 20s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(30px, -50px) scale(1.05); } 66% { transform: translate(-20px, 20px) scale(0.95); } }
+    @keyframes pulse-slow { 0%, 100% { opacity: 0.06; } 50% { opacity: 0.12; } }
+    .cursor-blink::after { content: '|'; animation: blink 1s step-end infinite; color: #6366f1; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .skill-bar { transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    .lang-btn { transition: all 0.25s ease; }
+    .lang-btn:hover { background: rgba(99, 102, 241, 0.15); }
+    .lang-btn.active { background: rgba(99, 102, 241, 0.2); border-color: rgba(99, 102, 241, 0.5); }
+    /* Page Transition */
+    .page-loader { position: fixed; inset: 0; z-index: 9999; background: #0a0a0a; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease, visibility 0.6s ease; }
+    .page-loader.loaded { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-logo { font-size: 1.5rem; font-weight: 700; color: #fff; opacity: 0; animation: loaderFade 1.2s ease forwards; }
+    @keyframes loaderFade { 0% { opacity: 0; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1); } 100% { opacity: 1; transform: scale(1); } }
+    .loader-bar { position: absolute; bottom: 0; left: 0; height: 3px; background: linear-gradient(90deg, #6366f1, #34d399); animation: loaderBar 1s ease forwards; }
+    @keyframes loaderBar { 0% { width: 0; } 100% { width: 100%; } }
+    /* Project card link icon */
+    .project-link-icon { transition: transform 0.2s ease; }
+    .group:hover .project-link-icon { transform: translate(2px, -2px); }
+  </style>
+</head>
+<body class="bg-dark-800 text-dark-100 font-sans antialiased overflow-x-hidden">
+
+  <!-- Page Loader -->
+  <div id="page-loader" class="page-loader">
+    <span class="loader-logo"><span style="color:#6366f1">&lt;</span>BL<span style="color:#6366f1">/&gt;</span></span>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Background Blobs (parallax) -->
+  <div class="blob w-96 h-96 bg-accent top-0 left-0" style="animation-delay: 0s;"></div>
+  <div class="blob w-80 h-80 bg-mint top-1/3 right-0" style="animation-delay: -7s;"></div>
+  <div class="blob w-72 h-72 bg-accent bottom-0 left-1/3" style="animation-delay: -14s;"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="text-lg font-bold tracking-tight text-white hover:text-accent transition-colors">
+        <span class="text-accent">&lt;</span>BL<span class="text-accent">/&gt;</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="nav-link text-sm text-dark-200 hover:text-white transition-colors" id="nav-about">About</a>
+        <a href="#skills" class="nav-link text-sm text-dark-200 hover:text-white transition-colors" id="nav-skills">Skills</a>
+        <a href="#projects" class="nav-link text-sm text-dark-200 hover:text-white transition-colors" id="nav-projects">Projects</a>
+        <a href="#contact" class="nav-link text-sm text-dark-200 hover:text-white transition-colors" id="nav-contact">Contact</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <!-- Language Toggle -->
+        <div class="flex items-center glass rounded-full p-1 gap-1">
+          <button id="lang-en" onclick="setLang('en')" class="lang-btn active px-3 py-1.5 rounded-full text-xs font-medium text-white">EN</button>
+          <button id="lang-pt" onclick="setLang('pt')" class="lang-btn px-3 py-1.5 rounded-full text-xs font-medium text-dark-200">🇧🇷 PT</button>
+        </div>
+        <!-- Mobile Menu -->
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-dark-200 hover:text-white transition-colors">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+      <div class="flex flex-col gap-3">
+        <a href="#about" onclick="closeMobileMenu()" class="text-sm text-dark-200 hover:text-white transition-colors" id="nav-about-m">About</a>
+        <a href="#skills" onclick="closeMobileMenu()" class="text-sm text-dark-200 hover:text-white transition-colors" id="nav-skills-m">Skills</a>
+        <a href="#projects" onclick="closeMobileMenu()" class="text-sm text-dark-200 hover:text-white transition-colors" id="nav-projects-m">Projects</a>
+        <a href="#contact" onclick="closeMobileMenu()" class="text-sm text-dark-200 hover:text-white transition-colors" id="nav-contact-m">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex items-center justify-center relative px-6">
+    <div class="max-w-4xl mx-auto text-center fade-in">
+      <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8">
+        <span class="w-2 h-2 bg-mint rounded-full animate-pulse"></span>
+        <span class="text-xs font-medium text-dark-200 tracking-wide uppercase" id="hero-status">Available for opportunities</span>
+      </div>
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
+        Bruno E. <span class="gradient-text">Lambreht</span>
+      </h1>
+      <p class="text-lg sm:text-xl md:text-2xl text-dark-200 font-light mb-4" id="hero-headline">
+        Economics Student <span class="text-dark-300">(UFGD)</span> | SysAdmin & Web Infrastructure
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <span class="tag inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border border-dark-400/50 text-dark-200">
+          <i class="fa-solid fa-chart-line text-accent text-[10px]"></i> <span id="tag-1">Financial Automation</span>
+        </span>
+        <span class="tag inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border border-dark-400/50 text-dark-200">
+          <i class="fa-brands fa-python text-mint text-[10px]"></i> <span id="tag-2">Python for Finance</span>
+        </span>
+        <span class="tag inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border border-dark-400/50 text-dark-200">
+          <i class="fa-solid fa-certificate text-accent text-[10px]"></i> <span id="tag-3">CPA</span>
+        </span>
+        <span class="tag inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border border-dark-400/50 text-dark-200">
+          <i class="fa-solid fa-robot text-mint text-[10px]"></i> <span id="tag-4">Algorithmic Trading</span>
+        </span>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#contact" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:shadow-accent/25">
+          <i class="fa-solid fa-paper-plane text-xs"></i> <span id="hero-cta">Get in Touch</span>
+        </a>
+        <a href="#about" class="inline-flex items-center gap-2 glass hover:bg-white/5 text-white px-6 py-3 rounded-full text-sm font-semibold transition-all">
+          <span id="hero-cta2">Learn More</span> <i class="fa-solid fa-arrow-down text-xs"></i>
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <i class="fa-solid fa-chevron-down text-dark-400 text-sm"></i>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 px-6 relative">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-in">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-accent font-mono text-sm">01.</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white" id="about-title">About Me</h2>
+        </div>
+        <div class="w-16 h-0.5 bg-accent/50 mb-12"></div>
+      </div>
+      <div class="grid md:grid-cols-5 gap-12 items-start">
+        <div class="md:col-span-3 fade-in">
+          <p class="text-dark-200 leading-relaxed text-base mb-6" id="about-p1">
+            I'm an Economics student at <span class="text-white font-medium">UFGD</span> with a deep passion for the intersection of <span class="text-accent font-medium">economics and technology</span>. I believe that the future of economic analysis lies in data-driven decision-making, and I'm building the skills to be at that frontier.
+          </p>
+          <p class="text-dark-200 leading-relaxed text-base mb-6" id="about-p2">
+            My work bridges the gap between traditional economic theory and modern computational tools. I leverage <span class="text-mint font-medium">Python and Data Science</span> to build financial models, automate analytical workflows, and explore algorithmic trading strategies — turning raw market data into actionable insights.
+          </p>
+          <p class="text-dark-200 leading-relaxed text-base" id="about-p3">
+            Beyond finance, I have hands-on experience in <span class="text-white font-medium">systems administration and web infrastructure</span>, managing servers, deploying applications, and ensuring reliable, scalable environments. This technical foundation gives me a unique edge in building end-to-end solutions — from data pipelines to production-ready tools.
+          </p>
+        </div>
+        <div class="md:col-span-2 fade-in">
+          <div class="glass rounded-2xl p-6 glow">
+            <h3 class="text-sm font-semibold text-accent uppercase tracking-wider mb-5" id="about-snapshot">Quick Snapshot</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-graduation-cap text-accent mt-1 text-sm"></i>
+                <div>
+                  <p class="text-white text-sm font-medium" id="snap-edu-label">Education</p>
+                  <p class="text-dark-300 text-xs" id="snap-edu-val">Economics — UFGD</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-crosshairs text-mint mt-1 text-sm"></i>
+                <div>
+                  <p class="text-white text-sm font-medium" id="snap-focus-label">Focus</p>
+                  <p class="text-dark-300 text-xs" id="snap-focus-val">Financial Automation & Data Analysis</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-server text-accent mt-1 text-sm"></i>
+                <div>
+                  <p class="text-white text-sm font-medium" id="snap-infra-label">Infrastructure</p>
+                  <p class="text-dark-300 text-xs" id="snap-infra-val">SysAdmin & Web Deployment</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-language text-mint mt-1 text-sm"></i>
+                <div>
+                  <p class="text-white text-sm font-medium" id="snap-lang-label">Languages</p>
+                  <p class="text-dark-300 text-xs" id="snap-lang-val">Portuguese (Native) · English</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-24 px-6 relative">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-in">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-accent font-mono text-sm">02.</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white" id="skills-title">Skills & Tools</h2>
+        </div>
+        <div class="w-16 h-0.5 bg-accent/50 mb-12"></div>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Python & Data -->
+        <div class="glass rounded-2xl p-6 card-hover fade-in">
+          <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+            <i class="fa-brands fa-python text-accent text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1" id="skill-cat-1">Python & Data</h3>
+          <p class="text-dark-300 text-xs mb-4" id="skill-cat-1-desc">Analysis, automation & modeling</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Python</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Pandas</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">NumPy</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Matplotlib</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Jupyter</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Selenium</span>
+          </div>
+        </div>
+        <!-- Finance & Trading -->
+        <div class="glass rounded-2xl p-6 card-hover fade-in">
+          <div class="w-10 h-10 rounded-xl bg-mint/10 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-coins text-mint text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1" id="skill-cat-2">Finance & Trading</h3>
+          <p class="text-dark-300 text-xs mb-4" id="skill-cat-2-desc">Markets, strategies & risk</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono" id="skill-algo">Algo Trading</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono" id="skill-backtest">Backtesting</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono" id="skill-risk">Risk Analysis</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono" id="skill-finaut">Financial Automation</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">CPA</span>
+          </div>
+        </div>
+        <!-- Infrastructure -->
+        <div class="glass rounded-2xl p-6 card-hover fade-in">
+          <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-server text-accent text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1" id="skill-cat-3">Infrastructure</h3>
+          <p class="text-dark-300 text-xs mb-4" id="skill-cat-3-desc">Servers, deploy & reliability</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Linux</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Docker</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Nginx</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">SSH</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">CI/CD</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">DNS</span>
+          </div>
+        </div>
+        <!-- Web & Tools -->
+        <div class="glass rounded-2xl p-6 card-hover fade-in">
+          <div class="w-10 h-10 rounded-xl bg-mint/10 flex items-center justify-center mb-4">
+            <i class="fa-solid fa-code text-mint text-lg"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-1" id="skill-cat-4">Web & Tools</h3>
+          <p class="text-dark-300 text-xs mb-4" id="skill-cat-4-desc">Development & workflow</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">HTML/CSS</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">JavaScript</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Git</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">SQL</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">APIs</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Tailwind</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-24 px-6 relative">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-in">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-accent font-mono text-sm">03.</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white" id="projects-title">Projects</h2>
+        </div>
+        <div class="w-16 h-0.5 bg-accent/50 mb-4"></div>
+        <p class="text-dark-200 text-base mb-12 max-w-2xl" id="projects-desc">A selection of projects that reflect my interests in financial automation, data analysis, and infrastructure.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Project 1 -->
+        <a href="https://github.com/bruno-lambreht" target="_blank" rel="noopener noreferrer" class="glass rounded-2xl p-6 card-hover fade-in group block">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+              <i class="fa-solid fa-chart-line text-accent text-lg"></i>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square text-dark-400 text-xs project-link-icon"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-2" id="proj-1-title">Financial Data Pipeline</h3>
+          <p class="text-dark-300 text-xs leading-relaxed mb-4" id="proj-1-desc">Automated pipeline for collecting, cleaning, and analyzing market data using Python, Pandas, and scheduled tasks.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Python</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Pandas</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Cron</span>
+          </div>
+        </a>
+        <!-- Project 2 -->
+        <a href="https://github.com/bruno-lambreht" target="_blank" rel="noopener noreferrer" class="glass rounded-2xl p-6 card-hover fade-in group block">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-mint/10 flex items-center justify-center">
+              <i class="fa-solid fa-robot text-mint text-lg"></i>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square text-dark-400 text-xs project-link-icon"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-2" id="proj-2-title">Algo Trading Backtester</h3>
+          <p class="text-dark-300 text-xs leading-relaxed mb-4" id="proj-2-desc">Backtesting engine for algorithmic trading strategies with risk metrics, performance visualization, and historical data replay.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Python</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">NumPy</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Matplotlib</span>
+          </div>
+        </a>
+        <!-- Project 3 -->
+        <a href="https://github.com/bruno-lambreht" target="_blank" rel="noopener noreferrer" class="glass rounded-2xl p-6 card-hover fade-in group block">
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+              <i class="fa-solid fa-server text-accent text-lg"></i>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square text-dark-400 text-xs project-link-icon"></i>
+          </div>
+          <h3 class="text-white font-semibold text-sm mb-2" id="proj-3-title">Web Infrastructure Stack</h3>
+          <p class="text-dark-300 text-xs leading-relaxed mb-4" id="proj-3-desc">Production-ready server setup with Nginx, Docker, SSL automation, and CI/CD pipelines for seamless deployments.</p>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Docker</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">Nginx</span>
+            <span class="px-2 py-1 rounded-md bg-dark-700/80 text-dark-200 text-[10px] font-mono">CI/CD</span>
+          </div>
+        </a>
+      </div>
+      <div class="text-center mt-10 fade-in">
+        <a href="https://github.com/bruno-lambreht" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-accent hover:text-accent-light text-sm font-medium transition-colors">
+          <span id="projects-more">View all on GitHub</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 px-6 relative">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="fade-in">
+        <div class="flex items-center justify-center gap-3 mb-2">
+          <span class="text-accent font-mono text-sm">04.</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white" id="contact-title">Get in Touch</h2>
+        </div>
+        <div class="w-16 h-0.5 bg-accent/50 mx-auto mb-8"></div>
+      </div>
+      <div class="fade-in">
+        <p class="text-dark-200 text-base leading-relaxed mb-10 max-w-xl mx-auto" id="contact-desc">
+          I'm always open to discussing new opportunities, collaborations, or just exchanging ideas about economics, finance, and technology. Feel free to reach out.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://github.com/bruno-lambreht" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-3 glass rounded-xl px-6 py-4 card-hover group">
+            <i class="fa-brands fa-github text-xl text-dark-200 group-hover:text-white transition-colors"></i>
+            <div class="text-left">
+              <p class="text-white text-sm font-medium">GitHub</p>
+              <p class="text-dark-300 text-xs">bruno-lambreht</p>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/bruno-e-lambreht/" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-3 glass rounded-xl px-6 py-4 card-hover group">
+            <i class="fa-brands fa-linkedin text-xl text-dark-200 group-hover:text-[#0A66C2] transition-colors"></i>
+            <div class="text-left">
+              <p class="text-white text-sm font-medium">LinkedIn</p>
+              <p class="text-dark-300 text-xs">bruno-e-lambreht</p>
+            </div>
+          </a>
+          <a href="mailto:brunolambreht963@protonmail.com"
+             class="inline-flex items-center gap-3 glass rounded-xl px-6 py-4 card-hover group">
+            <i class="fa-solid fa-envelope text-xl text-dark-200 group-hover:text-mint transition-colors"></i>
+            <div class="text-left">
+              <p class="text-white text-sm font-medium">E-mail</p>
+              <p class="text-dark-300 text-xs">protonmail.com</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 border-t border-dark-400/20">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-dark-300 text-xs" id="footer-text">
+        &copy; 2026 Bruno E. Lambreht. <span id="footer-rights">All rights reserved.</span>
+      </p>
+      <p class="text-dark-400 text-xs font-mono" id="footer-built">
+        Built with focus & caffeine ☕
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // ==================== LANGUAGE SYSTEM ====================
+    const translations = {
+      en: {
+        'nav-about': 'About',
+        'nav-skills': 'Skills',
+        'nav-projects': 'Projects',
+        'nav-contact': 'Contact',
+        'nav-about-m': 'About',
+        'nav-skills-m': 'Skills',
+        'nav-projects-m': 'Projects',
+        'nav-contact-m': 'Contact',
+        'hero-status': 'Available for opportunities',
+        'hero-headline': 'Economics Student <span class="text-dark-300">(UFGD)</span> | SysAdmin & Web Infrastructure',
+        'tag-1': 'Financial Automation',
+        'tag-2': 'Python for Finance',
+        'tag-3': 'CPA',
+        'tag-4': 'Algorithmic Trading',
+        'hero-cta': 'Get in Touch',
+        'hero-cta2': 'Learn More',
+        'about-title': 'About Me',
+        'about-p1': 'I\'m an Economics student at <span class="text-white font-medium">UFGD</span> with a deep passion for the intersection of <span class="text-accent font-medium">economics and technology</span>. I believe that the future of economic analysis lies in data-driven decision-making, and I\'m building the skills to be at that frontier.',
+        'about-p2': 'My work bridges the gap between traditional economic theory and modern computational tools. I leverage <span class="text-mint font-medium">Python and Data Science</span> to build financial models, automate analytical workflows, and explore algorithmic trading strategies — turning raw market data into actionable insights.',
+        'about-p3': 'Beyond finance, I have hands-on experience in <span class="text-white font-medium">systems administration and web infrastructure</span>, managing servers, deploying applications, and ensuring reliable, scalable environments. This technical foundation gives me a unique edge in building end-to-end solutions — from data pipelines to production-ready tools.',
+        'about-snapshot': 'Quick Snapshot',
+        'snap-edu-label': 'Education',
+        'snap-edu-val': 'Economics — UFGD',
+        'snap-focus-label': 'Focus',
+        'snap-focus-val': 'Financial Automation & Data Analysis',
+        'snap-infra-label': 'Infrastructure',
+        'snap-infra-val': 'SysAdmin & Web Deployment',
+        'snap-lang-label': 'Languages',
+        'snap-lang-val': 'Portuguese (Native) · English',
+        'skills-title': 'Skills & Tools',
+        'skill-cat-1': 'Python & Data',
+        'skill-cat-1-desc': 'Analysis, automation & modeling',
+        'skill-cat-2': 'Finance & Trading',
+        'skill-cat-2-desc': 'Markets, strategies & risk',
+        'skill-cat-3': 'Infrastructure',
+        'skill-cat-3-desc': 'Servers, deploy & reliability',
+        'skill-cat-4': 'Web & Tools',
+        'skill-cat-4-desc': 'Development & workflow',
+        'skill-algo': 'Algo Trading',
+        'skill-backtest': 'Backtesting',
+        'skill-risk': 'Risk Analysis',
+        'skill-finaut': 'Financial Automation',
+        'projects-title': 'Projects',
+        'projects-desc': 'A selection of projects that reflect my interests in financial automation, data analysis, and infrastructure.',
+        'proj-1-title': 'Financial Data Pipeline',
+        'proj-1-desc': 'Automated pipeline for collecting, cleaning, and analyzing market data using Python, Pandas, and scheduled tasks.',
+        'proj-2-title': 'Algo Trading Backtester',
+        'proj-2-desc': 'Backtesting engine for algorithmic trading strategies with risk metrics, performance visualization, and historical data replay.',
+        'proj-3-title': 'Web Infrastructure Stack',
+        'proj-3-desc': 'Production-ready server setup with Nginx, Docker, SSL automation, and CI/CD pipelines for seamless deployments.',
+        'projects-more': 'View all on GitHub',
+        'contact-title': 'Get in Touch',
+        'contact-desc': 'I\'m always open to discussing new opportunities, collaborations, or just exchanging ideas about economics, finance, and technology. Feel free to reach out.',
+        'footer-rights': 'All rights reserved.',
+        'footer-built': 'Built with focus & caffeine ☕',
+      },
+      pt: {
+        'nav-about': 'Sobre',
+        'nav-skills': 'Habilidades',
+        'nav-projects': 'Projetos',
+        'nav-contact': 'Contato',
+        'nav-about-m': 'Sobre',
+        'nav-skills-m': 'Habilidades',
+        'nav-projects-m': 'Projetos',
+        'nav-contact-m': 'Contato',
+        'hero-status': 'Disponível para oportunidades',
+        'hero-headline': 'Estudante de Economia <span class="text-dark-300">(UFGD)</span> | SysAdmin & Infraestrutura Web',
+        'tag-1': 'Automação Financeira',
+        'tag-2': 'Python para Finanças',
+        'tag-3': 'CPA',
+        'tag-4': 'Trading Algorítmico',
+        'hero-cta': 'Entre em Contato',
+        'hero-cta2': 'Saiba Mais',
+        'about-title': 'Sobre Mim',
+        'about-p1': 'Sou estudante de Economia na <span class="text-white font-medium">UFGD</span> com uma profunda paixão pela interseção entre <span class="text-accent font-medium">economia e tecnologia</span>. Acredito que o futuro da análise econômica está na tomada de decisões orientada por dados, e estou construindo as habilidades para estar nessa fronteira.',
+        'about-p2': 'Meu trabalho conecta a teoria econômica tradicional com ferramentas computacionais modernas. Utilizo <span class="text-mint font-medium">Python e Data Science</span> para construir modelos financeiros, automatizar fluxos de trabalho analíticos e explorar estratégias de trading algorítmico — transformando dados brutos de mercado em insights acionáveis.',
+        'about-p3': 'Além de finanças, tenho experiência prática em <span class="text-white font-medium">administração de sistemas e infraestrutura web</span>, gerenciando servidores, implantando aplicações e garantindo ambientes confiáveis e escaláveis. Essa base técnica me dá uma vantagem única na construção de soluções de ponta a ponta — de pipelines de dados a ferramentas prontas para produção.',
+        'about-snapshot': 'Resumo Rápido',
+        'snap-edu-label': 'Formação',
+        'snap-edu-val': 'Economia — UFGD',
+        'snap-focus-label': 'Foco',
+        'snap-focus-val': 'Automação Financeira & Análise de Dados',
+        'snap-infra-label': 'Infraestrutura',
+        'snap-infra-val': 'SysAdmin & Deploy Web',
+        'snap-lang-label': 'Idiomas',
+        'snap-lang-val': 'Português (Nativo) · Inglês',
+        'skills-title': 'Habilidades & Ferramentas',
+        'skill-cat-1': 'Python & Dados',
+        'skill-cat-1-desc': 'Análise, automação & modelagem',
+        'skill-cat-2': 'Finanças & Trading',
+        'skill-cat-2-desc': 'Mercados, estratégias & risco',
+        'skill-cat-3': 'Infraestrutura',
+        'skill-cat-3-desc': 'Servidores, deploy & confiabilidade',
+        'skill-cat-4': 'Web & Ferramentas',
+        'skill-cat-4-desc': 'Desenvolvimento & workflow',
+        'skill-algo': 'Trading Algorítmico',
+        'skill-backtest': 'Backtesting',
+        'skill-risk': 'Análise de Risco',
+        'skill-finaut': 'Automação Financeira',
+        'projects-title': 'Projetos',
+        'projects-desc': 'Uma seleção de projetos que refletem meus interesses em automação financeira, análise de dados e infraestrutura.',
+        'proj-1-title': 'Pipeline de Dados Financeiros',
+        'proj-1-desc': 'Pipeline automatizado para coleta, limpeza e análise de dados de mercado usando Python, Pandas e tarefas agendadas.',
+        'proj-2-title': 'Backtester de Algo Trading',
+        'proj-2-desc': 'Motor de backtesting para estratégias de trading algorítmico com métricas de risco, visualização de performance e replay de dados históricos.',
+        'proj-3-title': 'Stack de Infraestrutura Web',
+        'proj-3-desc': 'Setup de servidor pronto para produção com Nginx, Docker, automação de SSL e pipelines CI/CD para deploys contínuos.',
+        'projects-more': 'Ver todos no GitHub',
+        'contact-title': 'Entre em Contato',
+        'contact-desc': 'Estou sempre aberto a discutir novas oportunidades, colaborações ou simplesmente trocar ideias sobre economia, finanças e tecnologia. Fique à vontade para entrar em contato.',
+        'footer-rights': 'Todos os direitos reservados.',
+        'footer-built': 'Feito com foco & cafeína ☕',
+      }
+    };
+
+    let currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+      const btnEn = document.getElementById('lang-en');
+      const btnPt = document.getElementById('lang-pt');
+
+      if (lang === 'en') {
+        btnEn.classList.add('active');
+        btnEn.classList.replace('text-dark-200', 'text-white');
+        btnPt.classList.remove('active');
+        btnPt.classList.replace('text-white', 'text-dark-200');
+      } else {
+        btnPt.classList.add('active');
+        btnPt.classList.replace('text-dark-200', 'text-white');
+        btnEn.classList.remove('active');
+        btnEn.classList.replace('text-white', 'text-dark-200');
+      }
+
+      const t = translations[lang];
+      for (const id in t) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = t[id];
+      }
+    }
+
+    // ==================== MOBILE MENU ====================
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    function closeMobileMenu() {
+      document.getElementById('mobile-menu').classList.add('hidden');
+    }
+
+    // ==================== SCROLL ANIMATIONS ====================
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+    // ==================== PAGE LOADER ====================
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('page-loader').classList.add('loaded');
+      }, 1000);
+    });
+
+    // ==================== PARALLAX BLOBS ====================
+    const blobs = document.querySelectorAll('.blob');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      blobs.forEach((blob, i) => {
+        const speed = 0.03 + i * 0.015;
+        const yOffset = scrollY * speed;
+        const xOffset = Math.sin(scrollY * 0.002 + i) * 15;
+        blob.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+      });
+    });
+
+    // ==================== SMOOTH NAV HIGHLIGHT ====================
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY + 200;
+      sections.forEach((section) => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        const link = document.querySelector(`nav a[href="#${id}"]`);
+        if (link) {
+          if (scrollY >= top && scrollY < top + height) {
+            link.classList.add('text-white');
+            link.classList.remove('text-dark-200');
+          } else {
+            link.classList.remove('text-white');
+            link.classList.add('text-dark-200');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
